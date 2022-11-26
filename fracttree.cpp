@@ -52,11 +52,15 @@ class Fract : public sf::Drawable
 };
 
 int main(int argc, char const *argv[]) {
+  sf::VideoMode videoMode = sf::VideoMode::getDesktopMode();
 
-  Fract fract({1920/2, 1080/2}, 256, 0, {0, 0.66666666, 14});
-  Fract fract2({1920/2, 1080/2}, 256, pi, {0, 0.6666666, 14});
+  int width = videoMode.width;
+  int height = videoMode.height;
 
-  sf::RenderWindow app(sf::VideoMode(1920, 1080), "test", sf::Style::Fullscreen);
+  Fract fract({width/2, height/2}, 256, 0, {0, 0.66666666, 14});
+  Fract fract2({width/2, height/2}, 256, pi, {0, 0.6666666, 14});
+
+  sf::RenderWindow app(videoMode, "test", sf::Style::Fullscreen);
 
   sf::Clock timer;
   sf::Font fira;
